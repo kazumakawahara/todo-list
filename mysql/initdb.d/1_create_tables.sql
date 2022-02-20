@@ -2,15 +2,19 @@ USE test_db;
 
 CREATE TABLE statuses
 (
-    id     INT         NOT NULL AUTO_INCREMENT,
-    status VARCHAR(10) NOT NULL,
+    id         INT         NOT NULL AUTO_INCREMENT,
+    status     VARCHAR(10) NOT NULL,
+    created_at DATETIME    NOT NULL,
+    updated_at DATETIME    NOT NULL,
     PRIMARY KEY (id)
 );
 
 CREATE TABLE priorities
 (
-    id       INT     NOT NULL AUTO_INCREMENT,
-    priority CHAR(1) NOT NULL,
+    id         INT      NOT NULL AUTO_INCREMENT,
+    priority   CHAR(1)  NOT NULL,
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -23,6 +27,8 @@ CREATE TABLE todos
     implementation_date DATETIME    NOT NULL,
     due_date            DATETIME    NOT NULL,
     memo                TEXT        NOT NULL,
+    created_at          DATETIME    NOT NULL,
+    updated_at          DATETIME    NOT NULL,
     PRIMARY KEY (id),
 
     FOREIGN KEY fk_status_id (status_id)
